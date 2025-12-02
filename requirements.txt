@@ -1,9 +1,0 @@
-Flask
-Flask-SocketIO
-Flask-SQLAlchemy
-Flask-Login
-python-engineio
-python-socketio
-gunicorn
-gevent
-gevent-websocket
