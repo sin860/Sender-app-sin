@@ -1,8 +1,0 @@
-Flask
-Flask-SocketIO
-python-engineio
-python-socketio
-requests
-gunicorn
-gevent
-gevent-websocket
