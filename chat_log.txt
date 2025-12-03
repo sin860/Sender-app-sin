@@ -1,0 +1,5 @@
+{"timestamp": 1764751043, "user_identifier": "sin", "message": "hi", "role": "user"}
+{"timestamp": 1764752650, "user_identifier": "SIN", "message": "hi", "role": "owner"}
+{"timestamp": 1764754535, "user_identifier": "SIN", "username_key": "SIN", "message": "hi", "role": "owner"}
+{"id": 1, "timestamp": 1764755405, "user_identifier": "sin", "username_key": "sin", "message": "ه", "role": "user", "reply_to_id": null, "reply_text": "hi"}
+{"id": 2, "timestamp": 1764782458, "user_identifier": "hjuggggf", "username_key": "hjuggggf", "message": "hi", "role": "user", "reply_to_id": null, "reply_text": null}
