@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent: #ffffff;
+            --bg: #000000;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--accent); 
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* خلفية النجوم */
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        .wrapper {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* رأس الصفحة */
+        .header-box { text-align: center; margin-bottom: 20px; }
+        .avatar {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            padding: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); } 70% { box-shadow: 0 0 0 20px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
+
+        h1 { font-size: 26px; letter-spacing: 6px; font-weight: 900; }
+        .sub-text { color: #666; font-size: 11px; letter-spacing: 4px; margin-top: 10px; text-transform: uppercase; }
+
+        /* البطاقات الاحترافية */
+        .link-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item:hover {
+            background: #fff;
+            color: #000;
+            transform: scale(1.03) translateX(-5px);
+        }
+
+        .link-item i { font-size: 22px; width: 40px; }
+        .link-item .label { font-size: 14px; font-weight: 600; flex-grow: 1; }
+        .link-item .arrow { font-size: 12px; opacity: 0.5; }
+
+        /* مشغل الفيديو الاحترافي */
+        .video-section {
+            margin-top: 30px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            filter: grayscale(0.2);
+            transition: 0.5s;
+        }
+        
+        .video-section:hover video { filter: grayscale(0); }
+
+        /* شاشة الدخول */
+        #entry-gate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+        .entry-content { text-align: center; }
+        .entry-circle {
+            width: 80px; height: 80px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            transition: 0.5s;
+        }
+        #entry-gate:hover .entry-circle { transform: scale(1.2); background: #fff; color: #000; }
+
+    </style>
+</head>
+<body onclick="initSystem()">
+
+    <div id="entry-gate">
+        <div class="entry-content">
+            <div class="entry-circle"><i class="fas fa-fingerprint"></i></div>
+            <p style="letter-spacing: 5px; font-size: 12px;">Hey, you</p>
+        </div>
+    </div>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="wrapper">
+        <header class="header-box">
+            <img src="IMG_20260311_124400_530.jpg" class="avatar">
+            <h1>Mohammed Qais</h1>
+            <p class="sub-text">Security • Programming  • medical student </p>
+        </header>
+
+        <a href="https://t.me/K_K2P" class="link-item">
+            <i class="fab fa-telegram-plane"></i>
+            <span class="label">Channe</span>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://t.me/SIn_TOOLS" class="link-item">
+            <i class="fas fa-users-cog"></i>
+            <span class="label">Group</span>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://youtube.com/@sin_639?si=zk8qSgwsBm3drhEQ" class="link-item">
+            <i class="fab fa-youtube"></i>
+            <span class="label">YouTube channel</span>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@sin_python?_r=1&_t=ZS-94bBvgIG7ef" class="link-item">
+            <i class="fab fa-tiktok"></i>
+            <span class="label">Tiktok</span>
+            <i class="fas fa-chevron-left arrow"></i>
+        </a>
+
+        <div class="video-section">
+            <video id="mainVideo" loop playsinline muted>
+                <source src="VID_20260311_144222_889.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center; font-size:9px; color:#444; margin-top:10px; letter-spacing:3px;"></p>
+        </div>
+    </div>
+
+    <script>
+        const v = document.getElementById('mainVideo');
+        const gate = document.getElementById('entry-gate');
+
+        function initSystem() {
+            gate.style.opacity = '0';
+            setTimeout(() => gate.style.display = 'none', 500);
+            v.muted = false;
+            v.play();
+        }
+
+        // كود النجوم
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let dots = [];
+        function init() {
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            dots = [];
+            for(let i=0; i<100; i++) dots.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, s: Math.random()*1.5, sp: Math.random()*0.3+0.1 });
+        }
+        function draw() {
+            ctx.clearRect(0,0,canvas.width,canvas.height); ctx.fillStyle="#fff";
+            dots.forEach(d => { d.y-=d.sp; if(d.y<0) d.y=canvas.height; ctx.beginPath(); ctx.arc(d.x,d.y,d.s,0,Math.PI*2); ctx.fill(); });
+            requestAnimationFrame(draw);
+        }
+        window.addEventListener('resize', init);
+        init(); draw();
+    </script>
+</body>
+</html>
